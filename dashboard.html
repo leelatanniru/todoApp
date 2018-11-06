@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+<body>
+
+<div ng-app="dashboardApp" ng-controller="dashboardctrl" class="container jumbotron">
+<ul class="list-group">
+<div class="input-group" ng-repeat="x in works track by $index">
+  
+  <input ng-model="x.value" type="text" class="form-control" ng-disabled="x.disabled">
+  <span class="input-group-btn">
+    <button ng-show="showEdit(x.disabled)" class="btn btn-default" ng-click="EditItem(x)" type="button"><i class="fa fa-pencil-square-o"></i></button>
+	<button ng-show="showSave(x.disabled)" class="btn btn-default" ng-click="SaveItem(x)" type="button"><i class="fa fa-check" aria-hidden="false"></i></button>
+	<button ng-click="removeItem($index)" class="btn btn-default" type="button">Remove</button>
+  </span>
+</div>
+
+</ul>
+
+
+<div class="input-group">
+  
+  <input ng-model="new_item" type="text" class="form-control">
+  <span class="input-group-btn">
+    <button ng-click="addItem()" class="btn btn-default" type="button">Add Task</button>
+  </span>
+</div>
+
+<h1>{{ new_item }}
+</h1>
+
+
+
+</div>
+
+</body>
+</html>
